@@ -1,4 +1,13 @@
-/*
+/******************************************************************************
+  @file:  gps.c
+  @brief:
+
+  DESCRIPTION
+    This file defines the implemenation for GPS hardware abstraction layer.
+
+  INITIALIZATION AND SEQUENCING REQUIREMENTS
+
+  -----------------------------------------------------------------------------
 Copyright (c) 2009, QUALCOMM USA, INC.
 
 All rights reserved.
@@ -12,46 +21,46 @@ Redistribution and use in source and binary forms, with or without modification,
 ·         Neither the name of the QUALCOMM USA, INC.  nor the names of its contributors may be used to endorse or promote products derived from this software without specific prior written permission. 
 
 THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS "AS IS" AND ANY EXPRESS OR IMPLIED WARRANTIES, INCLUDING, BUT NOT LIMITED TO, THE IMPLIED WARRANTIES OF MERCHANTABILITY AND FITNESS FOR A PARTICULAR PURPOSE ARE DISCLAIMED. IN NO EVENT SHALL THE COPYRIGHT HOLDER OR CONTRIBUTORS BE LIABLE FOR ANY DIRECT, INDIRECT, INCIDENTAL, SPECIAL, EXEMPLARY, OR CONSEQUENTIAL DAMAGES (INCLUDING, BUT NOT LIMITED TO, PROCUREMENT OF SUBSTITUTE GOODS OR SERVICES; LOSS OF USE, DATA, OR PROFITS; OR BUSINESS INTERRUPTION) HOWEVER CAUSED AND ON ANY THEORY OF LIABILITY, WHETHER IN CONTRACT, STRICT LIABILITY, OR TORT (INCLUDING NEGLIGENCE OR OTHERWISE) ARISING IN ANY WAY OUT OF THE USE OF THIS SOFTWARE, EVEN IF ADVISED OF THE POSSIBILITY OF SUCH DAMAGE.
-*/
+  -----------------------------------------------------------------------------
 
-#ifndef DEBUG_H
-#define DEBUG_H
+******************************************************************************/
 
-#include <stdio.h>
+#include <hardware/gps.h>
 
-#define LOG_TAG "libgps-rpc"
-#include <utils/Log.h>
+#include <stdlib.h>
 
-#define PRINT(x...) do {                                    \
-        fprintf(stdout, "%s(%d) ", __FUNCTION__, __LINE__); \
-        fprintf(stdout, ##x);                               \
-        ALOGD(x);                               \
-    } while(0)
+extern const GpsInterface* get_gps_interface();
 
-#ifdef DEBUG
-#define D PRINT
-#else
-#define D(x...) do { } while(0)
-#endif
+const GpsInterface* gps__get_gps_interface(struct gps_device_t* dev)
+{
+    return get_gps_interface();
+}
 
-#ifdef VERBOSE
-#define V PRINT
-#else
-#define V(x...) do { } while(0)
-#endif
+static int open_gps(const struct hw_module_t* module, char const* name,
+        struct hw_device_t** device)
+{
+    struct gps_device_t *dev = malloc(sizeof(struct gps_device_t));
+    memset(dev, 0, sizeof(*dev));
 
-#define E(x...) do {                                        \
-        fprintf(stderr, "%s(%d) ", __FUNCTION__, __LINE__); \
-        fprintf(stderr, ##x);                               \
-        ALOGE(x);                                            \
-    } while(0)
+    dev->common.tag = HARDWARE_DEVICE_TAG;
+    dev->common.version = 0;
+    dev->common.module = (struct hw_module_t*)module;
+    dev->get_gps_interface = gps__get_gps_interface;
 
-#define FAILIF(cond, msg...) do {                                              \
-        if (__builtin_expect (cond, 0)) {                                      \
-            fprintf(stderr, "%s:%s:(%d): ", __FILE__, __FUNCTION__, __LINE__); \
-            fprintf(stderr, ##msg);                                            \
-            ALOGE(##msg);                                                       \
-        }                                                                      \
-    } while(0)
+    *device = (struct hw_device_t*)dev;
+    return 0;
+}
 
-#endif/*DEBUG_H*/
+static struct hw_module_methods_t gps_module_methods = {
+    .open = open_gps
+};
+
+struct hw_module_t HAL_MODULE_INFO_SYM = {
+    .tag = HARDWARE_MODULE_TAG,
+    .version_major = 1,
+    .version_minor = 0,
+    .id = GPS_HARDWARE_MODULE_ID,
+    .name = "loc_api GPS Module",
+    .author = "Qualcomm USA, Inc.",
+    .methods = &gps_module_methods,
+};

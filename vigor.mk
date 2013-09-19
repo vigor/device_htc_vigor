@@ -75,6 +75,10 @@ PRODUCT_PACKAGES += \
     lights.vigor \
     Stk \
     FileManager
+	
+# GPS
+PRODUCT_PACKAGES += \
+    gps.vigor
 
 ## cm dsp manager
 PRODUCT_PACKAGES += \
