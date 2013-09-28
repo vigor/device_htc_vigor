@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <!-- [CHAR LIMIT=40] Title of dialog that is shown when performing a system upgrade. -->
+    <string name="android_upgrading_title">Steel Droid is upgrading\u2026</string>
+</resources>
