@@ -22,3 +22,6 @@
 
 add_lunch_combo htc_vigor-userdebug
 add_lunch_combo htc_vigor-eng
+add_lunch_combo carbon_vigor-userdebug
+add_lunch_combo cm_vigor-userdebug
+add_lunch_combo pa-userdebug

@@ -18,4 +18,7 @@
 #
 
 PRODUCT_MAKEFILES := \
-    $(LOCAL_DIR)/vigor.mk
+    $(LOCAL_DIR)/vigor.mk \
+    $(LOCAL_DIR)/carbon.mk \
+    $(LOCAL_DIR)/cm.mk \
+    $(LOCAL_DIR)/pa.mk
