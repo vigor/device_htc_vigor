@@ -6,6 +6,8 @@ $(call inherit-product, device/htc/vigor/vigor.mk)
 TARGET_SCREEN_HEIGHT := 1280
 TARGET_SCREEN_WIDTH := 720
 
+DEVICE_PACKAGE_OVERLAYS := device/htc/vigor/cm-overlay
+
 # Device naming
 PRODUCT_NAME := cm_vigor
 PRODUCT_BRAND := htc
