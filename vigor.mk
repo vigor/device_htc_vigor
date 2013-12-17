@@ -36,11 +36,6 @@ PRODUCT_PACKAGES += \
     ueventd.vigor.rc \
     remount.vigor
 
-# Hostapd
-PRODUCT_COPY_FILES += \
-    device/htc/vigor/prebuilt/bin/hostapd:system/bin/hostapd \
-    device/htc/vigor/prebuilt/bin/hostapd_cli:system/bin/hostapd_cli
-
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase=android-verizon \
