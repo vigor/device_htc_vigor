@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="utf-8"?>
-<resources xmlns:xliff="urn:oasis:names:tc:xliff:document:1.2">
-    <string name="mod_version">Steel Droid version</string>
-    <string name="vanir_title">Steel Settings</string>
-    <string name="vanir_settings_title">Steel Droid Personalization</string>
-    <string name="vanir_ui_short">UI Settings</string>
-    <string name="vanir_buttons_short">Button Settings</string>
-    <string name="vanir_sound_short">Sound Settings</string>
-</resources>
