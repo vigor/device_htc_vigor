@@ -34,7 +34,7 @@ BOARD_WANTS_EMMC_BOOT := true
 # Kernel
 BOARD_KERNEL_BASE := 0x48800000
 BOARD_KERNEL_PAGE_SIZE := 2048
-BOARD_KERNEL_CMDLINE := console=ttyHSL3 androidboot.hardware=vigor no_console_suspend=1
+BOARD_KERNEL_CMDLINE := console=ttyHSL3 androidboot.hardware=vigor no_console_suspend=1 androidboot.selinux=permissive
 BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01400000
 TARGET_KERNEL_VERSION := 3.0
 TARGET_KERNEL_CONFIG := vigor_aosp_defconfig
