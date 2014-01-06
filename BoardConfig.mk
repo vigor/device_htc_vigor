@@ -34,7 +34,8 @@ BOARD_WANTS_EMMC_BOOT := true
 # Kernel
 BOARD_KERNEL_BASE := 0x48800000
 BOARD_KERNEL_PAGE_SIZE := 2048
-BOARD_KERNEL_CMDLINE := console=ttyHSL3 androidboot.hardware=vigor no_console_suspend=1
+BOARD_KERNEL_CMDLINE := console=ttyHSL3 androidboot.hardware=vigor no_console_suspend=1 androidboot.selinux=permissive
+BOARD_MKBOOTIMG_ARGS := --ramdisk_offset 0x01400000
 TARGET_KERNEL_VERSION := 3.0
 TARGET_KERNEL_CONFIG := vigor_aosp_defconfig
 TARGET_KERNEL_SOURCE := kernel/htc/vigor-$(TARGET_KERNEL_VERSION)
@@ -57,6 +58,10 @@ TARGET_QCOM_AUDIO_VARIANT := caf
 
 # GPS
 BOARD_USES_OLD_QC_GPS := true
+
+# Graphics
+TARGET_USES_ION := true
+TARGET_HAS_OLD_QCOM_ION := true
 
 # WiFi
 BOARD_WPA_SUPPLICANT_DRIVER := NL80211
@@ -82,7 +87,6 @@ BOARD_FLASH_BLOCK_SIZE := 131072
 BOARD_SUPPRESS_EMMC_WIPE := true
 
 # Vold
-BOARD_VOLD_EMMC_SHARES_DEV_MAJOR := true
 BOARD_VOLD_MAX_PARTITIONS := 38
 TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storage/lun%d/file
 
@@ -90,4 +94,3 @@ TARGET_USE_CUSTOM_LUN_FILE_PATH := /sys/class/android_usb/android0/f_mass_storag
 TARGET_RECOVERY_FSTAB := device/htc/vigor/rootdir/etc/fstab.vigor
 BOARD_HAS_NO_SELECT_BUTTON := true
 BOARD_USE_CUSTOM_RECOVERY_FONT := \"roboto_15x24.h\"
-SKIP_SET_METADATA := true

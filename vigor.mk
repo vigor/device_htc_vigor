@@ -36,18 +36,12 @@ PRODUCT_PACKAGES += \
     ueventd.vigor.rc \
     remount.vigor
 
-# Hostapd
-PRODUCT_COPY_FILES += \
-    device/htc/vigor/prebuilt/bin/hostapd:system/bin/hostapd \
-    device/htc/vigor/prebuilt/bin/hostapd_cli:system/bin/hostapd_cli
-
 # Misc
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.clientidbase=android-verizon \
     ro.com.google.locationfeatures=1 \
     ro.setupwizard.enable_bypass=1 \
-    dalvik.vm.lockprof.threshold=500 \
-    dalvik.vm.dexopt-flags=m=y
+    dalvik.vm.lockprof.threshold=500
 
 # Permissions
 PRODUCT_COPY_FILES += \
@@ -126,9 +120,6 @@ wifi.interface=wlan0 \
 BOARD_WLAN_DEVICE_REV := bcm4330_b2
 WIFI_BAND := 802_11_ABG
 $(call inherit-product-if-exists, hardware/broadcom/wlan/bcmdhd/firmware/bcm4330/device-bcm.mk)
-
-# We have enough storage space to hold precise GC data
-PRODUCT_TAGS += dalvik.gc.type-precise
 
 # Device uses high-density artwork where available
 PRODUCT_AAPT_CONFIG := normal hdpi xhdpi

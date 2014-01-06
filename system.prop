@@ -159,13 +159,3 @@ ro.modem.load.release_key = true
 # UMS
 persist.sys.usb.config = mass_storage,adb
 ro.vold.umsdirtyratio=50
-
-# Scrolling Tweaks
-windowsmgr.max_events_per_sec=180
-ro.max.fling_velocity=14000
-ro.min.fling_velocity=8000
-view.scroll_friction=0
-
-# Disable error checking
-ro.kernel.android.checkjni=0
-ro.kernel.checkjni=0
