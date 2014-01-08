@@ -23,6 +23,7 @@ PRODUCT_COPY_FILES := device/htc/vigor/gps/gps.conf:system/etc/gps.conf
 # Recovery
 PRODUCT_PACKAGES += \
     init.recovery.vigor.rc \
+    lpm.rc \
     choice_fn \
     detect_key \
     offmode_charging \
