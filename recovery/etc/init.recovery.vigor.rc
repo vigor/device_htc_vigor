@@ -13,3 +13,7 @@ service offmode_charging /sbin/offmode_charging
 service power_test /sbin/power_test
     disabled
     oneshot
+
+on init
+	export PATH /sbin
+	export LD_LIBRARY_PATH .:/sbin

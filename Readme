@@ -1,1 +1,19 @@
 Must copy vigor.xml to .repo/local_manifests
+
+Copy picks.sh to top dir of source and run
+. picks.sh
+
+This will cherry-pick in the following for sdcard & UMS/MTP support
+
+https://gerrit.omnirom.org/#/c/5207/
+https://gerrit.omnirom.org/#/c/5208/
+https://gerrit.omnirom.org/#/c/5209/
+https://gerrit.omnirom.org/#/c/4997/
+https://gerrit.omnirom.org/#/c/5042/
+https://gerrit.omnirom.org/#/c/5043/
+https://gerrit.omnirom.org/#/c/5044/
+https://gerrit.omnirom.org/#/c/5045/
+https://gerrit.omnirom.org/#/c/5046/
+https://gerrit.omnirom.org/#/c/5041/
+https://gerrit.omnirom.org/#/c/3733/
+
