@@ -1,0 +1,4 @@
+modelid: PH9810000
+cidnum: VZW__001
+mainver: 1.00.000.0
+hbootpreupdate:12
