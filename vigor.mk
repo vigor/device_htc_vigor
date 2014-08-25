@@ -89,7 +89,7 @@ PRODUCT_COPY_FILES += \
     device/htc/vigor/kernel_s-on/kernel_s-on.sh:system/kernel_s-on/kernel_s-on.sh \
     device/htc/vigor/kernel_s-on/misctool:system/kernel_s-on/misctool \
     device/htc/vigor/kernel_s-on/rebootToBootloader.sh:system/kernel_s-on/rebootToBootloader.sh \
-    device/htc/vigor/kernel_s-on/abootimg:system/kernel_s-on/zip
+    device/htc/vigor/kernel_s-on/zip:system/kernel_s-on/zip
 
 # Sound DSP
 PRODUCT_COPY_FILES += \
