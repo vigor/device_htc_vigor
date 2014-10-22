@@ -1,5 +1,5 @@
 ## Specify phone tech before including full_phone
-$(call inherit-product, vendor/carbon/config/common_cdma.mk)
+#$(call inherit-product, vendor/carbon/config/common_cdma.mk)
 
 # Release name
 PRODUCT_RELEASE_NAME := vigor
