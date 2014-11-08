@@ -42,8 +42,8 @@ ro.telephony.default_cdma_sub=0
 
 # cm qcom configs
 com.qc.hardware = true
-com.qc.hdmi_out = true
-ro.hdmi.enable = true
+##com.qc.hdmi_out = true
+##ro.hdmi.enable = true
 
 # qcom cpu governor service
 dev.pm.dyn_samplingrate = 1
@@ -106,9 +106,6 @@ ro.ril.hsxpa = 3
  
 # For HSDPA low throughput
 ro.ril.disable.power.collapse = 1
- 
-#system props for time-services
-persist.timed.enable = true
  
 # For the default value of agps
 ro.ril.def.agps.mode = 6
