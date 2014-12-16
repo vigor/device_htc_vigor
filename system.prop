@@ -39,6 +39,7 @@ persist.radio.snapshot_timer=22
 
 # Set CDMA SUBSCRIPTION SOURCE to RUIM in Database for this device
 ro.telephony.default_cdma_sub=0
+ro.telephony.get_imsi_from_sim=true
 
 # cm qcom configs
 com.qc.hardware = true
