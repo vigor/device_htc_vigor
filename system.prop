@@ -115,6 +115,7 @@ persist.timed.enable = true
 ro.ril.def.agps.mode = 6
 
 # audio
+media.stagefright.use-awesome=true
 lpa.decode = false
 lpa.use-stagefright = true
 media.stagefright.enable-player = true
