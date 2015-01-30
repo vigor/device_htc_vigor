@@ -153,12 +153,6 @@ on boot
     wait /dev/ttyHSL1
     mkdir /data/qcks 0770 system system
 
-    # wifi
-    mkdir /data/misc/wifi 0770 wifi wifi
-    mkdir /data/misc/wifi/sockets 0770 wifi wifi
-    mkdir /data/misc/wifi/wpa_supplicant 0770 wifi wifi
-    mkdir /data/misc/dhcp 0770 dhcp dhcp
-
     insmod /system/lib/modules/bcmdhd.ko
 
     # symlink for HDMI
