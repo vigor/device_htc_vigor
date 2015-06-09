@@ -161,7 +161,7 @@ on boot
     insmod /system/lib/modules/bcmdhd.ko
 
     # symlink for HDMI
-    symlink /dev/graphics/fb1 /dev/graphics/hdmi
+##    symlink /dev/graphics/fb1 /dev/graphics/hdmi
 
     # audio
     mkdir /data/audio 2770 media audio
@@ -252,10 +252,10 @@ service hciattach /system/bin/brcm_patchram_plus --no2bytes --enable_hci \
     disabled
     oneshot
 
-service hdmid /system/bin/hdmid
-    class main
-    socket hdmid stream 0660 root system graphics
-    disabled
+##service hdmid /system/bin/hdmid
+##    class main
+##    socket hdmid stream 0660 root system graphics
+##    disabled
 
 service htcbatt /system/bin/htcbatt
     class main
@@ -325,11 +325,6 @@ service qmiproxy /system/bin/qmiproxy
     group radio
 
 service qmuxd /system/bin/qmuxd
-    class main
-    user radio
-    group radio audio bluetooth gps
-
-service qmuxd /system/bin/qmuxd
     class late_start
     user radio
     group radio audio bluetooth gps
@@ -342,16 +337,11 @@ service rmt_storage /system/bin/rmt_storage /dev/block/mmcblk0p25 /dev/block/mmc
     class core
     user root
 
-service qcamerasvr /system/bin/mm-qcamera-daemon
-    class main
-    user system
-    group system camera inet
-
 on property:init.svc.bootanim=stopped
     start qcom-post-boot
 
-on property:ro.hdmi.enable=true
-    start hdmid
+##on property:ro.hdmi.enable=true
+##    start hdmid
 
 on property:service.adb.root=1
     write /sys/class/android_usb/android0/enable 0
