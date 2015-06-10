@@ -1,0 +1,56 @@
+ui_print("Extracting Kernel files...");
+package_extract_dir("system/kernel_s-on", "/tmp");
+set_perm(0, 0, 0777, "/tmp/dd");
+set_perm(0, 0, 0777, "/tmp/abootimg");
+set_perm(0, 0, 0777, "/tmp/kernel_s-on.sh");
+set_perm(0, 0, 0777, "/tmp/extractFilesFromTmpBoot.sh");
+package_extract_file("boot.img", "/tmp/boot.img");
+run_program("/tmp/kernel_s-on.sh");
+run_program("/tmp/dd", "if=/dev/block/mmcblk0p22", "of=/tmp/tmp_boot.img");
+run_program("/tmp/extractFilesFromTmpBoot.sh");
+if
+file_getprop("/tmp/security.prop","security") == "0"
+then
+ui_print("S-off detected...");
+ui_print("Flash successful");
+endif;
+if
+file_getprop("/tmp/security.prop","security") == "1"
+then
+ui_print("S-on detected...");
+ui_print("Adding New PH98IMG.zip to /sdcard...");
+set_perm(0, 0, 0777, "/tmp/buildZip.sh");
+set_perm(0, 0, 0777, "/tmp/copyToSD.sh");
+set_perm(0, 0, 0777, "/tmp/rebootToBootloader.sh");
+set_perm(0, 0, 0777, "/tmp/misctool");
+set_perm(0, 0, 0777, "/tmp/zip");
+run_program("/tmp/misctool", "w", "1.00.000.0");
+run_program("/tmp/buildZip.sh");
+run_program("/tmp/copyToSD.sh");
+ui_print("Done! PH98IMG.zip on /sdcard (external)");
+ui_print("Script by con247 @xda.");
+ui_print("Copying system files...");
+ui_print("Rebooting to Bootloader (HBOOT)");
+run_program("/tmp/rebootToBootloader.sh");
+endif;
+if
+file_getprop("/tmp/security.prop","security") == "2"
+then
+ui_print("S-on detected...");
+ui_print("Adding New PH98IMG.zip to /sdcard...");
+set_perm(0, 0, 0777, "/tmp/buildZip.sh");
+set_perm(0, 0, 0777, "/tmp/copyToSD.sh");
+set_perm(0, 0, 0777, "/tmp/rebootToBootloader.sh");
+set_perm(0, 0, 0777, "/tmp/misctool");
+set_perm(0, 0, 0777, "/tmp/zip");
+run_program("/tmp/misctool", "w", "1.00.000.0");
+run_program("/tmp/buildZip.sh");
+run_program("/tmp/copyToSD.sh");
+ui_print("Done! PH98IMG.zip on /sdcard (external)");
+ui_print("Script by con247 @xda.");
+ui_print("Copying system files...");
+ui_print("Rebooting to Bootloader (HBOOT)");
+run_program("/tmp/rebootToBootloader.sh");
+endif;
+
+ui_print("Done!");

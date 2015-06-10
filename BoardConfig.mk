@@ -31,6 +31,9 @@
 TARGET_BOOTLOADER_BOARD_NAME := vigor
 BOARD_WANTS_EMMC_BOOT := true
 
+# S-on Detection
+TARGET_RELEASETOOL_OTA_FROM_TARGET_SCRIPT := ./build/tools/releasetools/ota_from_target_files -e ./device/htc/vigor/installer_extra
+
 # Kernel
 BOARD_KERNEL_BASE := 0x48800000
 BOARD_KERNEL_PAGE_SIZE := 2048
